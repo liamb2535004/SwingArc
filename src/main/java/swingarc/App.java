@@ -1,4 +1,4 @@
-package yoonchan.swingarc;
+package swingarc;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

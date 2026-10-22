@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
-public class PrimaryController {
+public class MainMenuController {
 
     @FXML
     private Button playButton;

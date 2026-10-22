@@ -1,4 +1,7 @@
-module com.lky.swingarc {
+module yoonchan.swingarc {
     requires javafx.controls;
-    exports com.lky.swingarc;
+    requires javafx.fxml;
+
+    opens yoonchan.swingarc to javafx.fxml;
+    exports yoonchan.swingarc;
 }

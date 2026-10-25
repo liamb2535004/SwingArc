@@ -36,7 +36,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>yoonchan.swingarc.App</mainClass>
+                    <mainClass>swingarc.App</mainClass>
                 </configuration>
                 <executions>
                     <execution>

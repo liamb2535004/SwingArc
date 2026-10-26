@@ -1,13 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package yoonchan.swingarc.environment;
 
+import java.util.List;
+
 /**
- *
- * @author kng.nxm
+ * @author Liam
  */
 public class Level {
+    public List<TerrainSegment> terrain;
+    public List<Obstacle> obstacles;
+    public Vector2D teePosition;
+    public Vector2D holePosition;
+    public int holeNumber;
+    public int par;
+    public int windCoef;
+    
+    
+    public Level() {
+        
+    }
     
 }

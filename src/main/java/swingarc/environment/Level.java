@@ -1,4 +1,4 @@
-package yoonchan.swingarc.environment;
+package swingarc.environment;
 
 import java.util.ArrayList;
 import java.util.List;

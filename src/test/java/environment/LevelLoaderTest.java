@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import yoonchan.swingarc.environment.Obstacle;
-import yoonchan.swingarc.environment.TerrainSegment;
-import yoonchan.swingarc.level.LevelLoader;
+import swingarc.environment.Obstacle;
+import swingarc.environment.TerrainSegment;
+import swingarc.level.LevelLoader;
 
 /**
  * @author Liam
@@ -14,7 +14,7 @@ import yoonchan.swingarc.level.LevelLoader;
 public class LevelLoaderTest {
     @Test
     public void testLoadHole1() {
-        yoonchan.swingarc.environment.Level level = LevelLoader.loadLevel(1);
+        swingarc.environment.Level level = LevelLoader.loadLevel(1);
 
         assertNotNull(level, "Loaded level should not be null");
         assertEquals(1, level.getHoleNumber());

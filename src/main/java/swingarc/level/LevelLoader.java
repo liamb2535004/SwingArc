@@ -1,6 +1,6 @@
-package yoonchan.swingarc.level;
+package swingarc.level;
 
-import yoonchan.swingarc.environment.Level;
+import swingarc.environment.Level;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import java.io.InputStream;

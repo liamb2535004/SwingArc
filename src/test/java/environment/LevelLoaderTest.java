@@ -13,7 +13,7 @@ import yoonchan.swingarc.level.LevelLoader;
  */
 public class LevelLoaderTest {
     @Test
-    public void testLoadHole1Successfully() {
+    public void testLoadHole1() {
         yoonchan.swingarc.environment.Level level = LevelLoader.loadLevel(1);
 
         assertNotNull(level, "Loaded level should not be null");

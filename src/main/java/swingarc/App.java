@@ -1,4 +1,4 @@
-package yoonchan.swingarc;
+package swingarc;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        scene = new Scene(loadFXML("main-menu"));
         stage.setScene(scene);
         stage.show();
     }

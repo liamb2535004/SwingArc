@@ -1,9 +1,5 @@
 package swingarc.environment;
 
-/**
- *
- * @author Liam
- */
 public class Vector2D {
     private double x;
     private double y;
@@ -15,6 +11,10 @@ public class Vector2D {
     public Vector2D(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public Vector2D(Vector2D other) {
+        this(other.x, other.y);
     }
 
     public double getX() {
@@ -33,6 +33,20 @@ public class Vector2D {
         this.y = y;
     }
 
+    public void set(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void set(Vector2D other) {
+        this.x = other.x;
+        this.y = other.y;
+    }
+
+    public Vector2D copy() {
+        return new Vector2D(this.x, this.y);
+    }
+
     public Vector2D add(Vector2D other) {
         return new Vector2D(this.x + other.x, this.y + other.y);
     }
@@ -45,8 +59,24 @@ public class Vector2D {
         return new Vector2D(this.x * scalar, this.y * scalar);
     }
 
+    public Vector2D addInPlace(Vector2D other) {
+        this.x += other.x;
+        this.y += other.y;
+        return this;
+    }
+
+    public Vector2D scaleInPlace(double scalar) {
+        this.x *= scalar;
+        this.y *= scalar;
+        return this;
+    }
+
     public double magnitude() {
         return Math.sqrt(this.x * this.x + this.y * this.y);
+    }
+
+    public double lengthSquared() {
+        return this.x * this.x + this.y * this.y;
     }
 
     public double distance(Vector2D other) {
@@ -55,8 +85,38 @@ public class Vector2D {
         return Math.sqrt(dx * dx + dy * dy);
     }
 
+    public double dot(Vector2D other) {
+        return this.x * other.x + this.y * other.y;
+    }
+
+    public Vector2D normalized() {
+        double mag = magnitude();
+        if (mag == 0.0) {
+            return new Vector2D(0.0, 0.0);
+        }
+        return new Vector2D(this.x / mag, this.y / mag);
+    }
+
+    public Vector2D normalize() {
+        double mag = magnitude();
+        if (mag != 0.0) {
+            this.x /= mag;
+            this.y /= mag;
+        }
+        return this;
+    }
+
+    public Vector2D negate() {
+        return new Vector2D(-this.x, -this.y);
+    }
+
+    public boolean nearlyEquals(Vector2D other, double epsilon) {
+        return Math.abs(this.x - other.x) <= epsilon
+                && Math.abs(this.y - other.y) <= epsilon;
+    }
+
     @Override
     public String toString() {
         return "Vector2D{" + "x=" + x + ", y=" + y + '}';
-    }   
+    }
 }

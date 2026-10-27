@@ -6,6 +6,9 @@ module yoonchan.swingarc {
     opens swingarc to javafx.fxml;
     opens swingarc.environment to com.google.gson;
     opens swingarc.level to com.google.gson;
+    opens swingarc.physics;
 
     exports swingarc;
+    exports swingarc.environment;
+    exports swingarc.physics;
 }

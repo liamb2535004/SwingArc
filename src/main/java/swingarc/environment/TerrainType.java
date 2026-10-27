@@ -1,30 +1,25 @@
 package swingarc.environment;
 
-/**
- * @author Liam
- */
 public enum TerrainType {
-    // TODO: add neccessary friction/bounce values to TerrainTypes
-    FAIRWAY(0.0, 0.0),
-    ROUGH(0.0, 0.0),
-    SAND(0.0, 0.0),
-    WATER(0.0, 0.0),
-    WALL(0.0, 0.0);
-    
+    FAIRWAY(0.18, 0.35),
+    ROUGH(0.35, 0.25),
+    SAND(0.55, 0.08),
+    WATER(1.00, 0.00),
+    WALL(0.05, 0.70);
+
     private final double friction;
     private final double bounce;
-    
+
     TerrainType(double friction, double bounce) {
         this.friction = friction;
         this.bounce = bounce;
     }
-    
+
     public double getFriction() {
         return friction;
     }
-    
-    public double  getBounce() {
+
+    public double getBounce() {
         return bounce;
     }
 }
-

@@ -17,9 +17,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("main-menu"));
-        stage.setScene(scene);
-        stage.show();
+        MasterController mc = new MasterController(stage);
+        mc.loadScene("/swingarc/main-menu.fxml", "Main menu");
     }
 
     static void setRoot(String fxml) throws IOException {

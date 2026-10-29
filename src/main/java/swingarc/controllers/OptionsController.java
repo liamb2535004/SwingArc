@@ -1,4 +1,6 @@
 package swingarc.controllers;
 
-public class OptionsController {
+import swingarc.BaseController;
+
+public class OptionsController extends BaseController {
 }

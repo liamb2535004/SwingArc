@@ -9,19 +9,20 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="swingarc.controllers.LevelSelectController">
    <top>
-      <Label text="Level select" BorderPane.alignment="CENTER" />
+      <Label prefWidth="1280.0" text="Level select" BorderPane.alignment="CENTER" />
    </top>
    <bottom>
-      <Button mnemonicParsing="false" text="Return to menu" BorderPane.alignment="CENTER" />
+      <Button fx:id="menuButton" mnemonicParsing="false" onAction="#returnToMenu" text="Return to menu" BorderPane.alignment="CENTER" />
    </bottom>
    <padding>
       <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
    </padding>
-   <right>
-      <GridPane alignment="CENTER" hgap="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="640.0" vgap="12.0" BorderPane.alignment="CENTER">
+   <center>
+      <GridPane alignment="CENTER" hgap="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="1002.0" vgap="12.0" BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -33,52 +34,61 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <StackPane alignment="BOTTOM_LEFT" prefHeight="150.0" prefWidth="200.0">
+            <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" StackPane.alignment="BOTTOM_LEFT" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 4" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 5" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 6" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 7" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 8" />
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="167.0" fitWidth="326.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 9" />
                </children>
             </StackPane>
          </children>
       </GridPane>
-   </right>
+   </center>
 </BorderPane>

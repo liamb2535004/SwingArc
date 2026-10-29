@@ -22,18 +22,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .button {
     -fx-background-color: #292747; 
-    -fx-background-radius: 10px; 
+    -fx-background-radius: 10px;
+
+    -fx-border-color: transparent;
+    -fx-border-width: 3px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 8px;
+
     -fx-text-fill: white;
     -fx-font-family: "Outfit";
     -fx-font-weight: bold;
-    -fx-border-color: transparent; 
-    -fx-border-width: 2px; 
-    -fx-padding: 12px; 
 }
 
 .button:hover {
     -fx-background-color: darkgreen; 
     -fx-border-color: gold; 
+}
+
+Text {
+    -fx-fill-color: blue;
+    -fx-font-family: "Outfit";
+    -fx-font-weight: regular;
 }
 
 #title-label {
@@ -51,15 +60,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 #menu-button {
-    -fx-background-color: #292747; 
+    -fx-background-color: #292747;
+    -fx-border-color: transparent;
+    -fx-border-width: 3px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 8px;
+
     -fx-text-fill: white; 
     -fx-font-weight: bold;
     -fx-font-size: 16px;
     -fx-font-family: "Outfit";
-    -fx-border-color: transparent;
-    -fx-border-width: 3px; 
-    -fx-background-radius: 10px; 
-    -fx-border-radius: 8px; 
+
     -fx-padding: 8px; 
     -fx-pref-width: 220px; 
 }

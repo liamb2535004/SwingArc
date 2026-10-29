@@ -1,12 +1,14 @@
-package yoonchan.swingarc;
+package swingarc;
 
 import java.io.IOException;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 
-public class PrimaryController {
+public class MainMenuController {
 
     @FXML
     private Button playButton;
@@ -30,18 +32,22 @@ public class PrimaryController {
     }
 
     @FXML
-    private void switchDirectToGame(ActionEvent event) {
+    private void switchToGame(ActionEvent event) throws IOException {
+        App.setRoot("game");
     }
 
     @FXML
-    private void switchToLevels(ActionEvent event) {
+    private void switchToLevels(ActionEvent event) throws IOException {
+        App.setRoot("level-select");
     }
 
     @FXML
-    private void switchToOptions(ActionEvent event) {
+    private void switchToOptions(ActionEvent event) throws IOException {
+        App.setRoot("options");
     }
 
     @FXML
     private void quit(ActionEvent event) {
+        Platform.exit();
     }
 }

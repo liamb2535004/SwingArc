@@ -1,4 +1,6 @@
 package swingarc.controllers;
 
-public class GameController {
+import swingarc.BaseController;
+
+public class GameController extends BaseController {
 }

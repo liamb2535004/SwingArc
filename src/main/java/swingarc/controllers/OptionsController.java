@@ -1,4 +1,4 @@
-package swingarc;
+package swingarc.controllers;
 
 public class OptionsController {
 }

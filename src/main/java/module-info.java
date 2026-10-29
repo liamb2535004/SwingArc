@@ -8,4 +8,6 @@ module yoonchan.swingarc {
     opens swingarc.level to com.google.gson;
 
     exports swingarc;
+    exports swingarc.controllers;
+    opens swingarc.controllers to javafx.fxml;
 }

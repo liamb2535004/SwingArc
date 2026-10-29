@@ -1,4 +1,4 @@
-package swingarc;
+package swingarc.controllers;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
+import swingarc.App;
 
 public class MainMenuController {
 

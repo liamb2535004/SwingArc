@@ -24,7 +24,6 @@ public class MasterController {
             Object controller = loader.getController();
             if (controller instanceof BaseController) {
                 ((BaseController) controller).setMasterController(this);
-                System.out.println(controller);
             }
 
             stage.setTitle(title);

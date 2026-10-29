@@ -23,8 +23,6 @@ public class MainMenuController extends BaseController {
 
     @FXML
     private void initialize() {
-
-
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Black.ttf"), 16);
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Bold.ttf"), 16);
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Light.ttf"), 16);

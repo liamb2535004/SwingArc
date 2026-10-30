@@ -14,10 +14,10 @@
 
 <BorderPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="swingarc.controllers.LevelSelectController">
    <top>
-      <Label prefWidth="1280.0" text="Level select" BorderPane.alignment="CENTER" />
+      <Label prefWidth="1287.0" style="-fx-font-size: 20;" text="Level select" BorderPane.alignment="CENTER" />
    </top>
    <bottom>
-      <Button fx:id="menuButton" mnemonicParsing="false" onAction="#returnToMenu" prefWidth="112.0" text="Return to menu" BorderPane.alignment="CENTER" />
+      <Button fx:id="menuButton" mnemonicParsing="false" onAction="#returnToMenu" prefHeight="32.0" prefWidth="155.0" text="Return to menu" BorderPane.alignment="CENTER" />
    </bottom>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -35,11 +35,11 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0" styleClass="level-container">
+            <StackPane prefHeight="169.0" prefWidth="325.0" styleClass="level-container">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true">
+                  <ImageView id="levelImage1" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true">
                      <image>
-                        <Image url="@../levels/thumbnails/Placeholder_image.png" />
+                        <Image url="@../assets/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
@@ -49,7 +49,10 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="1">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage2" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -58,7 +61,10 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="2">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage3" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -67,7 +73,10 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage4" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 4">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -76,7 +85,10 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage5" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 5">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -85,7 +97,10 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage6" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 6">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -94,16 +109,22 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 7">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </StackPane.margin></Text>
+                  <ImageView id="levelImage7" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage8" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 8">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -112,7 +133,10 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
-                  <ImageView fitHeight="181.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView id="levelImage9" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
+                     <image>
+                        <Image url="@../assets/Placeholder_image.png" />
+                     </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 9">
                      <StackPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

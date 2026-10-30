@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Polygon?>
 
-<Pane maxHeight="720.0" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="swingarc.controllers.MainMenuController">
+<Pane maxHeight="720.0" maxWidth="1280.0" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="swingarc.controllers.MainMenuController">
    <children>
       <Circle fill="#ffe800" layoutX="1100.0" layoutY="200.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Polygon fill="#049e01" layoutX="730.0" layoutY="10.0" points="-435.6000061035156, 720.0, 388.4000244140625, 550.0, 560.0, 720.4000244140625" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
@@ -27,7 +27,7 @@
       <Circle fill="WHITE" layoutX="950.0" layoutY="450.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Circle fill="WHITE" layoutX="925.0" layoutY="460.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <Circle fill="WHITE" layoutX="970.0" layoutY="470.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" spacing="20.0" stylesheets="@../styles.css">
+      <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" prefWidth="1280.0" spacing="20.0" stylesheets="@styles.css">
          <children>
             <Label id="title-label" text="SwingArc" />
             <Button id="menu-button" fx:id="playButton" mnemonicParsing="false" onAction="#switchToGame" text="PLAY" />

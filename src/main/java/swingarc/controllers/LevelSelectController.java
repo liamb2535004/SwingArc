@@ -11,7 +11,7 @@ public class LevelSelectController extends BaseController {
 
     @FXML
     void returnToMenu(ActionEvent event) {
-        masterController.loadScene("/swingarc/main-menu.fxml", "Main menu");
+        masterController.loadScene("/scenes/main-menu.fxml", "Main menu");
     }
 
 }

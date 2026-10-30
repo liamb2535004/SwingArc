@@ -24,7 +24,7 @@ public class App extends Application {
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Regular.ttf"), 16);
 
         MasterController mc = new MasterController(stage);
-        mc.loadScene("/swingarc/main-menu.fxml", "Main menu");
+        mc.loadScene("/scenes/main-menu.fxml", "Main menu");
     }
 
     public static void main(String[] args) {

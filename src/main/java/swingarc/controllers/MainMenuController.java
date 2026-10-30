@@ -26,17 +26,17 @@ public class MainMenuController extends BaseController {
 
     @FXML
     private void switchToGame(ActionEvent event) throws IOException {
-        masterController.loadScene("/swingarc/game.fxml", "Game");
+        masterController.loadScene("/scenes/game.fxml", "Game");
     }
 
     @FXML
     private void switchToLevels(ActionEvent event) throws IOException {
-        masterController.loadScene("/swingarc/level-select.fxml", "Level select");
+        masterController.loadScene("/scenes/level-select.fxml", "Level select");
     }
 
     @FXML
     private void switchToOptions(ActionEvent event) throws IOException {
-        masterController.loadScene("/swingarc/options.fxml", "Options");
+        masterController.loadScene("/scenes/options.fxml", "Options");
     }
 
     @FXML

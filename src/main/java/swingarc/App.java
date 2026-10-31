@@ -13,7 +13,7 @@ import java.io.IOException;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Black.ttf"), 16);
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Bold.ttf"), 16);
         Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Light.ttf"), 16);

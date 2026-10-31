@@ -1,4 +1,4 @@
-package swingarc;
+package swingarc.controllers;
 
 public abstract class BaseController {
     protected MasterController masterController;

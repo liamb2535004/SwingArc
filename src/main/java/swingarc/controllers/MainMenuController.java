@@ -6,9 +6,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.text.Font;
-import swingarc.App;
-import swingarc.BaseController;
 
 public class MainMenuController extends BaseController {
 
@@ -22,7 +19,8 @@ public class MainMenuController extends BaseController {
     private Button quitButton;
 
     @FXML
-    private void initialize() {}
+    private void initialize() {
+    }
 
     @FXML
     private void switchToGame(ActionEvent event) throws IOException {

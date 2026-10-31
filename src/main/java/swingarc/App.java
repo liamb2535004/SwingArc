@@ -3,6 +3,7 @@ package swingarc;
 import javafx.application.Application;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import swingarc.controllers.MasterController;
 
 import java.io.IOException;
 

@@ -22,26 +22,21 @@ public class MainMenuController extends BaseController {
     private Button quitButton;
 
     @FXML
-    private void initialize() {
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Black.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Bold.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Light.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Regular.ttf"), 16);
-    }
+    private void initialize() {}
 
     @FXML
     private void switchToGame(ActionEvent event) throws IOException {
-        masterController.loadScene("/swingarc/game.fxml", "Game");
+        masterController.loadScene("/scenes/game.fxml", "Game");
     }
 
     @FXML
     private void switchToLevels(ActionEvent event) throws IOException {
-        masterController.loadScene("/swingarc/level-select.fxml", "Level select");
+        masterController.loadScene("/scenes/level-select.fxml", "Level select");
     }
 
     @FXML
     private void switchToOptions(ActionEvent event) throws IOException {
-        masterController.loadScene("/swingarc/options.fxml", "Options");
+        masterController.loadScene("/scenes/options.fxml", "Options");
     }
 
     @FXML

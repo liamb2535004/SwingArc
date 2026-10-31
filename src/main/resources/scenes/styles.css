@@ -11,26 +11,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
     /* Layer 1: Solid base dark green */
     /* Layer 2: Seamless repeating vertical lines spaced 32 pixels apart */
-    -fx-background-color:
-            #0B2B1B,
-
-                /* Layer 2: Vertical stripes (repeats left-to-right every 32px) */
-            linear-gradient(
-                    from 0 0 to 32 0, repeat,
-                    rgba(255, 255, 255, 0.06) 0%,
-                    rgba(255, 255, 255, 0.06) 3%,
-                    transparent 3%,
-                    transparent 100%
-            ),
-
-                /* Layer 3: Horizontal stripes (repeats top-to-bottom every 32px) */
-            linear-gradient(
-                    from 0 0 to 0 32, repeat,
-                    rgba(255, 255, 255, 0.06) 0%,
-                    rgba(255, 255, 255, 0.06) 3%,
-                    transparent 3%,
-                    transparent 100%
-            );
+    -fx-background-color: #0B2B1B,
+        /* Layer 2: Vertical stripes (repeats left-to-right every 32px) */ linear-gradient(
+            from 0 0 to 32 0, repeat,
+            rgba(255, 255, 255, 0.06) 0%,
+            rgba(255, 255, 255, 0.06) 3%,
+            transparent 3%,
+            transparent 100%
+    ),
+        /* Layer 3: Horizontal stripes (repeats top-to-bottom every 32px) */ linear-gradient(
+            from 0 0 to 0 32, repeat,
+            rgba(255, 255, 255, 0.06) 0%,
+            rgba(255, 255, 255, 0.06) 3%,
+            transparent 3%,
+            transparent 100%
+    );
 }
 
 .main-menu-background {
@@ -73,8 +68,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .level-container:hover {
-     -fx-border-color: gold;
- }
+    -fx-border-color: gold;
+}
+
+.slider .track {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 5px;
+    -fx-pref-height: 12px; /* Control track thickness */
+}
+
+.slider .thumb {
+    -fx-background-color: lightgray;
+    -fx-background-radius: 10px; /* Makes it a circle if dimensions are square */
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 4, 0.0, 0, 2);
+}
+
+.slider:pressed .thumb {
+    -fx-background-color: gold;
+    -fx-scale-x: 1.1; /* Slightly enlarge when active */
+    -fx-scale-y: 1.1;
+}
 
 Text {
     -fx-fill: black;

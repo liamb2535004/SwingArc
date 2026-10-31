@@ -7,7 +7,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : yoonc_feo8r6n
 */
 
-.root {
+.generic-background {
+
+    /* Layer 1: Solid base dark green */
+    /* Layer 2: Seamless repeating vertical lines spaced 32 pixels apart */
+    -fx-background-color:
+            #0B2B1B,
+
+                /* Layer 2: Vertical stripes (repeats left-to-right every 32px) */
+            linear-gradient(
+                    from 0 0 to 32 0, repeat,
+                    rgba(255, 255, 255, 0.06) 0%,
+                    rgba(255, 255, 255, 0.06) 3%,
+                    transparent 3%,
+                    transparent 100%
+            ),
+
+                /* Layer 3: Horizontal stripes (repeats top-to-bottom every 32px) */
+            linear-gradient(
+                    from 0 0 to 0 32, repeat,
+                    rgba(255, 255, 255, 0.06) 0%,
+                    rgba(255, 255, 255, 0.06) 3%,
+                    transparent 3%,
+                    transparent 100%
+            );
+}
+
+.main-menu-background {
     -fx-background-color: linear-gradient(to bottom, lightcyan, lightskyblue);
 }
 
@@ -54,7 +80,6 @@ Text {
     -fx-fill: black;
     -fx-font-family: "Outfit";
     -fx-font-size: 14px;
-    -fx-font-weight: regular;
 }
 
 #title-label {

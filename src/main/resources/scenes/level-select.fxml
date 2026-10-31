@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="swingarc.controllers.LevelSelectController">
+<BorderPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" styleClass="generic-background" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="swingarc.controllers.LevelSelectController">
    <top>
       <Label prefWidth="1287.0" style="-fx-font-size: 20;" text="Level select" BorderPane.alignment="CENTER" />
    </top>
@@ -109,14 +109,15 @@
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.rowIndex="2">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 7">
-                     <StackPane.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </StackPane.margin></Text>
                   <ImageView id="levelImage7" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
                         <Image url="@../assets/Placeholder_image.png" />
                      </image></ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 7">
+                     <StackPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </StackPane.margin>
+                  </Text>
                </children>
             </StackPane>
             <StackPane alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="1.0" prefHeight="150.0" prefWidth="200.0" styleClass="level-container" GridPane.columnIndex="1" GridPane.rowIndex="2">

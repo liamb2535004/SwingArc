@@ -1,4 +1,4 @@
-package swingarc;
+package swingarc.controllers;
 
 import java.io.IOException;
 
@@ -7,8 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
+import swingarc.App;
+import swingarc.BaseController;
 
-public class MainMenuController {
+public class MainMenuController extends BaseController {
 
     @FXML
     private Button playButton;
@@ -20,30 +22,21 @@ public class MainMenuController {
     private Button quitButton;
 
     @FXML
-    private void initialize() {
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Black.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Bold.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Light.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Regular.ttf"), 16);
-    }
-
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
+    private void initialize() {}
 
     @FXML
     private void switchToGame(ActionEvent event) throws IOException {
-        App.setRoot("game");
+        masterController.loadScene("/scenes/game.fxml", "Game");
     }
 
     @FXML
     private void switchToLevels(ActionEvent event) throws IOException {
-        App.setRoot("level-select");
+        masterController.loadScene("/scenes/level-select.fxml", "Level select");
     }
 
     @FXML
     private void switchToOptions(ActionEvent event) throws IOException {
-        App.setRoot("options");
+        masterController.loadScene("/scenes/options.fxml", "Options");
     }
 
     @FXML

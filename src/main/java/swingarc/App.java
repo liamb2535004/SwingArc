@@ -14,10 +14,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Black.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Bold.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Light.ttf"), 16);
-        Font.loadFont(App.class.getResourceAsStream("fonts/Outfit-Regular.ttf"), 16);
+        Font.loadFont(App.class.getResourceAsStream("/fonts/Outfit-Black.ttf"), 16);
+        Font.loadFont(App.class.getResourceAsStream("/fonts/Outfit-Bold.ttf"), 16);
+        Font.loadFont(App.class.getResourceAsStream("/fonts/Outfit-Light.ttf"), 16);
+        Font.loadFont(App.class.getResourceAsStream("/fonts/Outfit-Regular.ttf"), 16);
 
         MasterController mc = new MasterController(stage);
         mc.loadScene("/scenes/main-menu.fxml", "Main menu");

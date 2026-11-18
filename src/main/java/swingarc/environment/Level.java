@@ -15,6 +15,7 @@ public class Level {
     private Vector2D cupPosition;
     private List<TerrainSegment> terrain;
     private List<Obstacle> obstacles;
+    private double courseWidth = 1920.0;
 
     public Level() {
         this.terrain = new ArrayList<>();
@@ -96,6 +97,10 @@ public class Level {
 
     public void setObstacles(List<Obstacle> obstacles) {
         this.obstacles = obstacles;
+    }
+
+    public double getCourseWidth() {
+        return courseWidth > 0 ? courseWidth : 1920.0;
     }
 
     @Override

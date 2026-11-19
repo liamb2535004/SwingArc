@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     );
 }
 
-.main-menu-background {
+.sky {
     -fx-background-color: linear-gradient(to bottom, lightcyan, lightskyblue);
 }
 
@@ -57,6 +57,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .button:hover {
     -fx-background-color: darkgreen;
     -fx-border-color: gold;
+}
+
+.pseudo-button:hover {
+    -fx-opacity: 0.7;
 }
 
 /* Mask the parent StackPane container */

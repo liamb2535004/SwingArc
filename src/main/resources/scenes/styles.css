@@ -59,6 +59,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-border-color: gold;
 }
 
+.pseudo-button:hover {
+    -fx-opacity: 0.7;
+}
+
 /* Mask the parent StackPane container */
 .level-container {
     -fx-background-color: transparent;

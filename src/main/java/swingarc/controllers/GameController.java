@@ -43,8 +43,8 @@ public class GameController extends BaseController {
         }
     }
 
+    @FXML
     public void pauseGame() {
-        System.out.println("Pause!");
         isPaused = true;
         pauseMenu.requestFocus();
         pauseMenu.setVisible(true);

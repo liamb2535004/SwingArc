@@ -1,6 +1,7 @@
 module yoonchan.swingarc {
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.graphics;
     requires com.google.gson;
 
     opens swingarc to javafx.fxml;

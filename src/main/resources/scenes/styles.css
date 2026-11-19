@@ -52,6 +52,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: white;
     -fx-font-family: "Outfit";
     -fx-font-weight: bold;
+
+    -fx-cursor: hand;
 }
 
 .button:hover {
@@ -61,6 +63,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .pseudo-button:hover {
     -fx-opacity: 0.7;
+    -fx-cursor: hand;
 }
 
 /* Mask the parent StackPane container */

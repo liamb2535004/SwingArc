@@ -28,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     );
 }
 
-.main-menu-background {
+.sky {
     -fx-background-color: linear-gradient(to bottom, lightcyan, lightskyblue);
 }
 

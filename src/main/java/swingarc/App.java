@@ -5,12 +5,14 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import swingarc.controllers.MasterController;
 
-import java.io.IOException;
-
 /**
  * JavaFX App
  */
 public class App extends Application {
+
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage stage) {
@@ -21,10 +23,6 @@ public class App extends Application {
 
         MasterController mc = new MasterController(stage);
         mc.loadScene("/scenes/main-menu.fxml", "Main menu");
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 
 }

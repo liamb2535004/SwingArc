@@ -8,6 +8,7 @@ public class Ball {
     private double radius;
     private boolean moving;
     private boolean grounded;
+    private boolean inWater;
     private double surfaceFriction;
 
     public Ball() {
@@ -20,6 +21,7 @@ public class Ball {
         this.radius = radius;
         this.moving = false;
         this.grounded = true;
+        this.inWater = false;
         this.surfaceFriction = 0.0;
     }
 
@@ -67,6 +69,14 @@ public class Ball {
         this.surfaceFriction = surfaceFriction;
     }
 
+    public boolean isInWater() {
+        return inWater;
+    }
+
+    public void setInWater(boolean inWater) {
+        this.inWater = inWater;
+    }
+
     public void setPosition(double x, double y) {
         this.position.set(x, y);
     }
@@ -84,6 +94,7 @@ public class Ball {
         this.velocity.set(launchVelocity);
         this.moving = true;
         this.grounded = false;
+        this.inWater = false;
     }
 
     public void launch(double vx, double vy) {
@@ -98,6 +109,7 @@ public class Ball {
                 ", radius=" + radius +
                 ", moving=" + moving +
                 ", grounded=" + grounded +
+                ", inWater=" + inWater +
                 '}';
     }
 }

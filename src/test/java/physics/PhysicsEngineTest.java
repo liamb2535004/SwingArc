@@ -1,8 +1,13 @@
 package physics;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import swingarc.environment.Obstacle;
+import swingarc.environment.TerrainSegment;
 import swingarc.environment.TerrainType;
 import swingarc.physics.Ball;
 import swingarc.physics.PhysicsEngine;
@@ -82,5 +87,56 @@ public class PhysicsEngineTest {
         assertTrue(TerrainType.ROUGH.getFriction() > TerrainType.FAIRWAY.getFriction());
         assertTrue(TerrainType.WALL.getBounce() > TerrainType.SAND.getBounce());
         assertEquals(0.0, TerrainType.WATER.getBounce(), 1e-9);
+    }
+
+    @Test
+    public void updateWithTerrainLandsBallOnGround() {
+        List<TerrainSegment> terrain = Collections.singletonList(
+                new TerrainSegment(0, 400, 400, 400, TerrainType.FAIRWAY));
+
+        ball.setPosition(100, 50);
+        ball.launch(0, 0);
+
+        for (int i = 0; i < 600; i++) {
+            engine.update(ball, 0.016, 0.0, terrain, null);
+            if (!ball.isMoving()) {
+                break;
+            }
+        }
+
+        assertFalse(ball.isMoving());
+        assertTrue(ball.isGrounded());
+        assertEquals(400 - ball.getRadius(), ball.getPosition().getY(), 2.0);
+        assertFalse(ball.isInWater());
+    }
+
+    @Test
+    public void updateStopsWhenBallEntersWaterObstacle() {
+        Obstacle pond = new Obstacle("WATER", 90, 200, 40, 40, 1.0, 0.0);
+        ball.setPosition(100, 100);
+        ball.launch(0, 200);
+
+        for (int i = 0; i < 80; i++) {
+            engine.update(ball, 0.016, 0.0, null, Collections.singletonList(pond));
+            if (ball.isInWater()) {
+                break;
+            }
+        }
+
+        assertTrue(ball.isInWater());
+        assertFalse(ball.isMoving());
+    }
+
+    @Test
+    public void updateDoesNothingWhenBallAlreadyInWater() {
+        ball.setPosition(50, 50);
+        ball.setInWater(true);
+        ball.setMoving(true);
+        ball.setVelocity(100, 100);
+
+        engine.update(ball, 1.0, 5.0);
+
+        assertEquals(50.0, ball.getPosition().getX(), 1e-9);
+        assertEquals(50.0, ball.getPosition().getY(), 1e-9);
     }
 }

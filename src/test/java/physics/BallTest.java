@@ -19,6 +19,7 @@ public class BallTest {
 
         assertTrue(ball.isMoving());
         assertFalse(ball.isGrounded());
+        assertFalse(ball.isInWater());
         assertEquals(150.0, ball.getVelocity().getX(), 1e-9);
         assertEquals(-300.0, ball.getVelocity().getY(), 1e-9);
     }
@@ -38,5 +39,14 @@ public class BallTest {
         Ball ball = new Ball();
         ball.setSurfaceFriction(0.35);
         assertEquals(0.35, ball.getSurfaceFriction(), 1e-9);
+    }
+
+    @Test
+    public void launchClearsInWaterFlag() {
+        Ball ball = new Ball(0, 0, 8);
+        ball.setInWater(true);
+        ball.launch(10, -10);
+        assertFalse(ball.isInWater());
+        assertTrue(ball.isMoving());
     }
 }

@@ -8,33 +8,37 @@
 
 ## Physics engine (Kian) — `physics-engine` branch
 
-This branch covers the **first half** of the physics work. Full collision handling (`CollisionDetector`) is left for a later pass.
+This branch completes Kian’s physics lead work: motion **and** collisions.
 
 ### What was added
 
 | Piece | Location | Purpose |
 | --- | --- | --- |
 | `Vector2D` (expanded) | `swingarc.environment.Vector2D` | Math helpers for physics: `copy`, `set`, `dot`, `normalize` / `normalized`, `addInPlace`, `scaleInPlace`, `lengthSquared`, `nearlyEquals`, etc. |
-| `Ball` | `swingarc.physics.Ball` | Ball state: position, velocity, radius, moving/grounded flags, surface friction, `launch()` / `stop()` |
-| `PhysicsEngine` | `swingarc.physics.PhysicsEngine` | Per-frame update: gravity (airborne), wind (airborne), ground friction, stop when speed is low |
-| `TerrainType` values | `swingarc.environment.TerrainType` | Friction and bounce filled in for fairway, rough, sand, water, and wall |
+| `Ball` | `swingarc.physics.Ball` | Ball state: position, velocity, radius, moving/grounded/`inWater` flags, surface friction, `launch()` / `stop()` |
+| `PhysicsEngine` | `swingarc.physics.PhysicsEngine` | Per-frame update: gravity, wind, friction, stop speed, then collision resolve |
+| `CollisionDetector` | `swingarc.physics.CollisionDetector` | Terrain floor contact/bounce, sand friction, water sink, wall bounce, cup check |
+| `TerrainType` values | `swingarc.environment.TerrainType` | Friction and bounce for fairway, rough, sand, water, and wall |
 | Module wiring | `module-info.java` | Exports / opens `swingarc.physics` (and exports `swingarc.environment`) |
 | Build / tests | `pom.xml` | JUnit Jupiter + Surefire so tests run from NetBeans or Maven |
-| Unit tests | `src/test/java/physics/` | `Vector2DTest`, `BallTest`, `PhysicsEngineTest` |
+| Unit tests | `src/test/java/physics/` | `Vector2DTest`, `BallTest`, `PhysicsEngineTest`, `CollisionDetectorTest` |
 
-### How the simulation works (so far)
+### How the simulation works
 
 - Coordinates match the level JSON: **+X right, +Y down** (1920×1080 canvas).
 - While the ball is **airborne**, gravity increases downward velocity and wind applies a horizontal push.
-- While the ball is **grounded**, surface friction damps velocity (friction comes from terrain / will be set by collisions later).
+- While the ball is **grounded**, surface friction damps velocity (set from terrain / sand by collisions).
+- After each move, `CollisionDetector`:
+  - snaps / bounces the ball on `TerrainSegment` floors
+  - applies sand friction, sinks the ball in water, bounces off walls
+  - can report when the ball is in the cup (`isInCup`)
 - When speed drops below `PhysicsEngine.STOP_SPEED`, the ball stops.
+- Preferred gameplay call: `physicsEngine.update(ball, dt, level)`.
 
-`Ball.setGrounded(...)` and `Ball.setSurfaceFriction(...)` are ready for `CollisionDetector` to drive once that half is built.
+### Not part of this physics package
 
-### Not in this half
-
-- `CollisionDetector` (ground, hazards, wall bounces)
-- Drag-to-aim input, gameplay canvas, HUD (team / other leads)
+- Drag-to-aim input, gameplay canvas, HUD, menus (team / other leads)
+- Wiring the game loop / stroke scoring UI (shared integration)
 
 ### Running in NetBeans
 

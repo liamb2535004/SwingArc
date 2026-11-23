@@ -150,6 +150,8 @@ public class LevelLoader extends BaseController {
 // World
         gc.save();
         drawTerrain(gc, currentLevel.getTerrain());
+        drawCupAndFlag(gc, currentLevel.getCupPosition());
+        drawBall(gc);
         gc.restore();
 
 // HUD
@@ -205,6 +207,40 @@ public class LevelLoader extends BaseController {
             }
         }
         gc.setTextAlign(TextAlignment.LEFT);
+    }
+
+    /**
+     * Renders the golf cup, flagpole, and red pennant flag at the target position.
+     *
+     * @param gc the GraphicsContext to draw onto
+     * @param cup the world coordinates of the hole cup
+     */
+    private void drawCupAndFlag(GraphicsContext gc, Vector2D cup) {
+        if (cup == null) return;
+        gc.setFill(Color.web("#144210"));
+        gc.fillOval(cup.getX() - 12, cup.getY() - 12, 24, 24);
+        gc.setStroke(Color.web("#8C5828"));
+        gc.setLineWidth(5.0);
+        gc.strokeLine(cup.getX(), cup.getY(), cup.getX(), cup.getY() - 105);
+        gc.setFill(Color.web("#E0483E"));
+        gc.fillPolygon(
+                new double[]{cup.getX(), cup.getX() + 62, cup.getX()},
+                new double[]{cup.getY() - 105, cup.getY() - 86, cup.getY() - 67}, 3
+        );
+    }
+
+    /**
+     * Renders the golf ball at its current world coordinates.
+     *
+     * @param gc the GraphicsContext to draw onto
+     */
+    private void drawBall(GraphicsContext gc) {
+        if (ballPos == null) return;
+        gc.setFill(Color.WHITE);
+        gc.setStroke(Color.web("#2D3748"));
+        gc.setLineWidth(2.5);
+        gc.fillOval(ballPos.getX() - BALL_RADIUS, ballPos.getY() - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
+        gc.strokeOval(ballPos.getX() - BALL_RADIUS, ballPos.getY() - BALL_RADIUS, BALL_RADIUS * 2, BALL_RADIUS * 2);
     }
 
     /**

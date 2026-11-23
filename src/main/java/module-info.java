@@ -4,10 +4,11 @@ module yoonchan.swingarc {
     requires com.google.gson;
 
     opens swingarc to javafx.fxml;
+    opens swingarc.controllers to javafx.fxml;
     opens swingarc.environment to com.google.gson;
-    opens swingarc.level to com.google.gson;
+    opens swingarc.level to com.google.gson, javafx.fxml;
 
     exports swingarc;
     exports swingarc.controllers;
-    opens swingarc.controllers to javafx.fxml;
+    exports swingarc.level;
 }

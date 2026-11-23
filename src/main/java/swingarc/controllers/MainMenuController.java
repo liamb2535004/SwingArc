@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import swingarc.level.LevelLoader;
 
 public class MainMenuController extends BaseController {
 
@@ -24,6 +25,7 @@ public class MainMenuController extends BaseController {
 
     @FXML
     private void switchToGame(ActionEvent event) throws IOException {
+        LevelLoader.setSelectedHole(1);
         masterController.loadScene("/scenes/game.fxml", "Game");
     }
 

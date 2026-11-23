@@ -1,14 +1,21 @@
 package swingarc.level;
 
 import com.google.gson.Gson;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import swingarc.controllers.BaseController;
 import swingarc.environment.*;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 /**
  * Controller and rendering engine for levels.
@@ -63,9 +70,12 @@ public class LevelLoader extends BaseController {
         gameCanvas = new Canvas(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
         gameCanvas.widthProperty().bind(rootPane.widthProperty());
         gameCanvas.heightProperty().bind(rootPane.heightProperty());
+        gameCanvas.widthProperty().addListener((obs, o, n) -> render());
+        gameCanvas.heightProperty().addListener((obs, o, n) -> render());
 
         rootPane.getChildren().setAll(gameCanvas);
         startHole(selectedHole);
+        Platform.runLater(this::render);
     }
 
     /**
@@ -85,6 +95,7 @@ public class LevelLoader extends BaseController {
 
         strokes = 0;
         isPaused = false;
+        render();
     }
 
     /**
@@ -107,6 +118,89 @@ public class LevelLoader extends BaseController {
         } catch (Exception e) {
             throw new RuntimeException("Error loading level " + holeNumber, e);
         }
+    }
+
+    /**
+     * Renders a complete frame of the game world, HUD, power gauge, and
+     * pause overlay (if paused) scaled to the current canvas size.
+     */
+    public void render() {
+        if (currentLevel == null || gameCanvas == null) return;
+
+        double w = gameCanvas.getWidth();
+        double h = gameCanvas.getHeight();
+        if (w <= 0 || h <= 0) {
+            if (gameCanvas.getScene() == null || gameCanvas.getScene().getWidth() <= 0) return;
+            w = gameCanvas.getScene().getWidth();
+            h = gameCanvas.getScene().getHeight();
+            gameCanvas.widthProperty().unbind();
+            gameCanvas.heightProperty().unbind();
+            gameCanvas.setWidth(w);
+            gameCanvas.setHeight(h);
+        }
+
+        GraphicsContext gc = gameCanvas.getGraphicsContext2D();
+        gc.save();
+        gc.scale(w / VIRTUAL_WIDTH, h / VIRTUAL_HEIGHT);
+
+// Sky
+        gc.setFill(Color.web("#DFF0FF"));
+        gc.fillRect(0, 0, VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+
+// World
+        gc.save();
+        drawTerrain(gc, currentLevel.getTerrain());
+        gc.restore();
+    }
+
+    /**
+     * Renders the ground polygon, turf borders, and surface bands/labels
+     * for TerrainType.WATER and TerrainType.SAND.
+     *
+     * @param gc the GraphicsContext to draw onto
+     * @param segments the list of terrain segments making up the course
+     */
+    private void drawTerrain(GraphicsContext gc, List<TerrainSegment> segments) {
+        if (segments == null || segments.isEmpty()) return;
+
+        int n = segments.size() + 3;
+        double[] xs = new double[n];
+        double[] ys = new double[n];
+        for (int i = 0; i < segments.size(); i++) {
+            xs[i] = segments.get(i).getStart().getX();
+            ys[i] = segments.get(i).getStart().getY();
+        }
+        TerrainSegment last = segments.get(segments.size() - 1);
+        xs[segments.size()] = last.getEnd().getX();
+        ys[segments.size()] = last.getEnd().getY();
+        xs[segments.size() + 1] = last.getEnd().getX();
+        ys[segments.size() + 1] = VIRTUAL_HEIGHT;
+        xs[segments.size() + 2] = segments.get(0).getStart().getX();
+        ys[segments.size() + 2] = VIRTUAL_HEIGHT;
+
+        gc.setFill(Color.web("#66BB55"));
+        gc.fillPolygon(xs, ys, n);
+
+        gc.setTextAlign(TextAlignment.CENTER);
+        for (TerrainSegment seg : segments) {
+            double x1 = seg.getStart().getX(), y1 = seg.getStart().getY();
+            double x2 = seg.getEnd().getX(), y2 = seg.getEnd().getY();
+            TerrainType type = seg.getType() != null ? seg.getType() : TerrainType.FAIRWAY;
+
+            if (type == TerrainType.WATER || type == TerrainType.SAND) {
+                boolean isWater = type == TerrainType.WATER;
+                gc.setFill(isWater ? Color.web("#3B8AD9") : Color.web("#E6CE7D"));
+                gc.fillPolygon(new double[]{x1, x2, x2, x1}, new double[]{y1, y2, y2 + 30, y1 + 30}, 4);
+                gc.setFill(isWater ? Color.WHITE : Color.web("#7A6220"));
+                gc.setFont(Font.font("Outfit", FontWeight.NORMAL, 16));
+                gc.fillText(isWater ? "water" : "sand", (x1 + x2) / 2.0, (y1 + y2) / 2.0 + 20);
+            } else {
+                gc.setStroke(type == TerrainType.ROUGH ? Color.web("#38A169") : Color.web("#2B6E1F"));
+                gc.setLineWidth(4.0);
+                gc.strokeLine(x1, y1, x2, y2);
+            }
+        }
+        gc.setTextAlign(TextAlignment.LEFT);
     }
 
     public Canvas getGameCanvas() { return gameCanvas; }

@@ -1,6 +1,9 @@
 package swingarc.level;
 
 import com.google.gson.Gson;
+import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.layout.AnchorPane;
 import swingarc.controllers.BaseController;
 import swingarc.environment.*;
 import java.io.InputStream;
@@ -15,8 +18,21 @@ import java.nio.charset.StandardCharsets;
 public class LevelLoader extends BaseController {
 
     private static final Gson GSON = new Gson();
+    private static final double VIRTUAL_WIDTH = 1920.0;
+    private static final double VIRTUAL_HEIGHT = 1080.0;
+    private static final double BALL_RADIUS = 12.0;
+    private static final int TOTAL_HOLES = 9;
 
     private static int selectedHole = 1;
+
+    @FXML
+    private AnchorPane rootPane;
+    private Canvas gameCanvas;
+    private Level currentLevel;
+    private Vector2D ballPos;
+    private int strokes = 0;
+    private int totalScore = 0;
+    private boolean isPaused = false;
 
     /**
      * Default no-argument constructor required by javafx.fxml.FXMLLoader (prevents crashes).
@@ -35,6 +51,41 @@ public class LevelLoader extends BaseController {
      * @param holeNumber the hole number (1 to 9)
      */
     public static void setSelectedHole(int holeNumber) { selectedHole = Math.max(1, holeNumber); }
+
+    /**
+     * Initializes the game canvas, fixes dimensions to the root pane,
+     * sets resize and mouse click listeners, and loads the selected hole.
+     */
+    @FXML
+    private void initialize() {
+        if (rootPane == null) return;
+
+        gameCanvas = new Canvas(VIRTUAL_WIDTH, VIRTUAL_HEIGHT);
+        gameCanvas.widthProperty().bind(rootPane.widthProperty());
+        gameCanvas.heightProperty().bind(rootPane.heightProperty());
+
+        rootPane.getChildren().setAll(gameCanvas);
+        startHole(selectedHole);
+    }
+
+    /**
+     * Loads the indicated hole, places the ball on the tee, resets per-hole
+     * gameplay state, and triggers an initial render.
+     *
+     * @param holeNumber the 1-based hole number to start
+     */
+    public void startHole(int holeNumber) {
+        selectedHole = Math.max(1, holeNumber);
+        currentLevel = loadLevel(selectedHole);
+
+        Vector2D tee = currentLevel.getTeePosition();
+        ballPos = (tee != null)
+                ? new Vector2D(tee.getX(), tee.getY() - BALL_RADIUS)
+                : new Vector2D(200.0, 770.0);
+
+        strokes = 0;
+        isPaused = false;
+    }
 
     /**
      * Parses a hole JSON resource file into a Level object.
@@ -57,4 +108,20 @@ public class LevelLoader extends BaseController {
             throw new RuntimeException("Error loading level " + holeNumber, e);
         }
     }
+
+    public Canvas getGameCanvas() { return gameCanvas; }
+
+    public Level getCurrentLevel() { return currentLevel; }
+
+    public Vector2D getBallPos() { return ballPos; }
+
+    public void setBallPos(Vector2D ballPos) { this.ballPos = ballPos; }
+
+    public int getStrokes() { return strokes; }
+    public void setStrokes(int strokes) { this.strokes = strokes; }
+
+    public int getTotalScore() { return totalScore; }
+    public void setTotalScore(int totalScore) { this.totalScore = totalScore; }
+
+    public boolean isPaused() { return isPaused; }
 }

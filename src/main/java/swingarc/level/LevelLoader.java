@@ -151,6 +151,10 @@ public class LevelLoader extends BaseController {
         gc.save();
         drawTerrain(gc, currentLevel.getTerrain());
         gc.restore();
+
+// HUD
+        drawTopHUD(gc);
+        gc.restore();
     }
 
     /**
@@ -199,6 +203,41 @@ public class LevelLoader extends BaseController {
                 gc.setLineWidth(4.0);
                 gc.strokeLine(x1, y1, x2, y2);
             }
+        }
+        gc.setTextAlign(TextAlignment.LEFT);
+    }
+
+    /**
+     * Renders the top HUD bar displaying hole number, par, strokes, wind,
+     * total score, and the pause/play toggle button.
+     *
+     * @param gc the GraphicsContext to draw onto
+     */
+    private void drawTopHUD(GraphicsContext gc) {
+        gc.setFill(Color.web("#2E3744"));
+        gc.fillRect(45, 35, VIRTUAL_WIDTH - 90, 95);
+
+        double wind = currentLevel.getWind();
+        String windText = (wind > 0 ? "→ " : wind < 0 ? "← " : "") + Math.round(Math.abs(wind)) + " mph";
+        String[] labels = {"HOLE", "PAR", "STROKES", "WIND", "SCORE"};
+        String[] values = {
+                currentLevel.getHoleNumber() + " / " + TOTAL_HOLES,
+                String.valueOf(currentLevel.getPar()),
+                String.valueOf(strokes),
+                windText,
+                (totalScore > 0 ? "+" : "") + totalScore
+        };
+
+        double colWidth = (VIRTUAL_WIDTH - 260) / 5.0;
+        gc.setTextAlign(TextAlignment.CENTER);
+        for (int i = 0; i < 5; i++) {
+            double cx = 70 + colWidth * (i + 0.5);
+            gc.setFill(Color.web("#9AA5B4"));
+            gc.setFont(Font.font("Outfit", FontWeight.NORMAL, 16));
+            gc.fillText(labels[i], cx, 68);
+            gc.setFill(Color.WHITE);
+            gc.setFont(Font.font("Outfit", FontWeight.BOLD, 28));
+            gc.fillText(values[i], cx, 105);
         }
         gc.setTextAlign(TextAlignment.LEFT);
     }

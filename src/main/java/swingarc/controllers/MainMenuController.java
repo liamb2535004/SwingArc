@@ -20,6 +20,9 @@ public class MainMenuController extends BaseController {
 
     @FXML
     private void initialize() {
+        // TODO for liam: hook this up
+        int level = 1;
+        playButton.setText(String.format("Play - Level %d", level));
     }
 
     @FXML

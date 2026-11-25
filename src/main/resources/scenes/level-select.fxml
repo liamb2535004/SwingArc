@@ -39,7 +39,7 @@
                <children>
                   <ImageView id="levelImage1" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" StackPane.alignment="BOTTOM_LEFT">
                      <StackPane.margin>
@@ -51,7 +51,7 @@
                <children>
                   <ImageView id="levelImage2" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2">
                      <StackPane.margin>
@@ -63,7 +63,7 @@
                <children>
                   <ImageView id="levelImage3" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3">
                      <StackPane.margin>
@@ -75,7 +75,7 @@
                <children>
                   <ImageView id="levelImage4" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 4">
                      <StackPane.margin>
@@ -87,7 +87,7 @@
                <children>
                   <ImageView id="levelImage5" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 5">
                      <StackPane.margin>
@@ -99,7 +99,7 @@
                <children>
                   <ImageView id="levelImage6" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 6">
                      <StackPane.margin>
@@ -111,7 +111,7 @@
                <children>
                   <ImageView id="levelImage7" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 7">
                      <StackPane.margin>
@@ -124,7 +124,7 @@
                <children>
                   <ImageView id="levelImage8" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 8">
                      <StackPane.margin>
@@ -136,7 +136,7 @@
                <children>
                   <ImageView id="levelImage9" fitHeight="169.0" fitWidth="335.0" onMousePressed="#loadLevel" pickOnBounds="true" StackPane.alignment="CENTER">
                      <image>
-                        <Image url="@../assets/Placeholder_image.png" />
+                        <Image url="@../images/Placeholder_image.png" />
                      </image></ImageView>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Level 9">
                      <StackPane.margin>

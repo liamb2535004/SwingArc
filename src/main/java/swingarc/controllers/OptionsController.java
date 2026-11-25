@@ -4,7 +4,6 @@ import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.text.Text;
 
@@ -15,9 +14,6 @@ public class OptionsController extends BaseController {
 
     @FXML
     private Text gravityText;
-
-    @FXML
-    private Button menuButton;
 
     @FXML
     private Slider powerSlider;

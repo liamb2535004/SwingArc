@@ -91,6 +91,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 4, 0.0, 0, 2);
 }
 
+.slider .thumb:hover {
+    -fx-background-color: #ffe67b;
+    -fx-cursor: hand;
+}
+
 .slider:pressed .thumb {
     -fx-background-color: gold;
     -fx-scale-x: 1.1; /* Slightly enlarge when active */
